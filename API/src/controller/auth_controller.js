@@ -1,5 +1,11 @@
 import UserModel from "../model/User.js";
 
+const checkAuth = (req, res) => {
+    
+    // Répond avec un message de succès et les informations de l'utilisateur si connecté       
+       res.json({message: "Utilisateur connecté", user: req.session.user || {}});
+   };
+   
 const register = async (req, res) => {
     try {
         const result = await UserModel.register(req.body);
@@ -22,7 +28,8 @@ const login = async (req, res) => {
             id: result.id,
             username: result.username,
             email: result.email,
-            isAdmin: result.isAdmin
+            statut: result.statut,
+            isAdmin: result.role
          };
         res.status(201).json({ message: "Connexion réussie", user: req.session.user });
     } catch (error) {
@@ -40,4 +47,4 @@ const logout = async (req, res) => {
     });
 };
 
-export { register, login , logout };
+export { register, login , logout, checkAuth };

@@ -1,0 +1,53 @@
+@import './variables.scss';
+
+.admin-panel {
+  h1 {
+    font-family: $font-secondary;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: $color-white;
+    background-color: $color-grey-dark;
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .comment-management {
+  
+    h2 {
+      margin-bottom: 10px;
+      padding-left: 10px;
+      color: $color-black;
+      font-size: 2rem;
+    }
+  
+    ul {
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        padding: 20px;
+        margin-bottom: 10px;
+        border: 1px solid $color-grey-light;
+        background-color: $color-background;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        p {
+          margin: 10px 0;
+          font-size: 1.2rem;
+          color: $color-black;
+        }
+
+        strong {
+          color: $color-white;
+        }
+
+        button {
+          margin: 10px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

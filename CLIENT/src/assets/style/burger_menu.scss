@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+.BurgerMenu {
+  @include flex-center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  flex-direction: column;
+
+  a {
+    color: $color-white;
+    text-decoration: none;
+    font-size: 1.6rem;
+    margin: 10px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .BurgerMenu {
+    display: none;
+  }
+}

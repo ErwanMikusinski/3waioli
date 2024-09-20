@@ -1,0 +1,45 @@
+@import './home.scss';
+@import './header.scss';
+@import './footer.scss';
+@import './form.scss';
+@import './recipes.scss';
+@import './recipes_detail.scss';
+@import './comment.scss';
+@import './burger_menu';
+@import './admin.scss';
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat.ttf') format('truetype');
+    font-weight: 400;
+  }
+
+body, html {
+    min-height: 100vh;
+    margin: 0;
+    font-family: $font-primary;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-secondary;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}

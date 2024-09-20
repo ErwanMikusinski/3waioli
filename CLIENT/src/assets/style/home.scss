@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+main {
+  padding: 20px;
+  background-color: $color-white;
+
+  h1 {
+    color: $color-white; 
+    text-shadow: 1px 1px 2px $color-black;
+
+    .italy-green {
+      color: $color-green;
+    }
+  
+    .italy-white {
+      color: $color-white;
+    }
+  
+    .italy-red {
+      color: $color-red;
+    }
+  }
+
+  p {
+    color: $color-black;
+  }
+
+  div {
+    margin-top: 20px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 40px;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}

@@ -26,7 +26,7 @@ const app = express();
 
 // Configuration des options CORS
 const corsOptions = cors({
-	origin: "http://localhost:5172", // URL autorisée à faire des requêtes CORS
+	origin: "http://localhost:5173", // URL autorisée à faire des requêtes CORS
 	credentials: true, // Autorisation d'envoyer des cookies dans les requêtes CORS
 });
 
@@ -68,17 +68,6 @@ app.use(express.json());
 
 // Middleware pour servir des fichiers statiques depuis le dossier "public"
 app.use(express.static("public"));
-
-// Middleware personnalisé pour loguer les sessions et vérifier si l'utilisateur est admin
-app.use((req, res, next) => {
-	// console.log("MW", req.session);
-    if(req.session.isAdmin){
-        console.log("hello admin");
-    } else {
-        console.log("You are an user");
-    }
-	next(); // Passer au middleware suivant
-});
 
 // Utilisation du routeur pour gérer les routes de l'application
 app.use(router);

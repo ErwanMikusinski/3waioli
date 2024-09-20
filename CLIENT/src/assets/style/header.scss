@@ -1,0 +1,44 @@
+@import './variables.scss';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: $color-grey-dark;
+  color: $color-white;
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .HeaderNav {
+    display: none;
+    gap: 20px;
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ff7f00;
+      }
+    }
+  }
+
+  .BurgerIcon {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .BurgerIcon {
+      display: none;
+    }
+
+    .HeaderNav {
+      display: flex;
+    }
+  }
+}
