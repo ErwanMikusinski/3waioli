@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../hooks/UserContextProvider";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
-import '../assets/style/comment.scss'; // Importez votre fichier CSS ou SCSS ici
+import '../assets/style/comment.scss';
+import { useUser } from "../hooks/UserContextProvider";
 
 function Comment({ recipeId }) {
-  const user = useContext(UserContext);
+  const user = useUser();
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
 

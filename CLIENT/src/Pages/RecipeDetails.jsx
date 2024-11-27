@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // Assure-toi d'importer useParams
+import { useParams } from "react-router-dom";
 import Comment from "../Components/Comment.jsx";
 
 function RecipesDetail() {
-  const { id } = useParams(); // Récupère l'ID de la recette depuis les paramètres d'URL
+  const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,7 +24,7 @@ function RecipesDetail() {
         return response.json();
       })
       .then((data) => {
-        setRecipe(data); // Met à jour l'état avec les données de la recette
+        setRecipe(data);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -45,7 +45,6 @@ function RecipesDetail() {
     return <p>Recette non trouvée</p>;
   }
 
-  // Convertir la méthode de préparation en étapes distinctes
   const preparationSteps = recipe.preparation_method
     .split(".")
     .filter((step) => step.trim() !== "");
@@ -59,10 +58,8 @@ function RecipesDetail() {
       />
       <div className="recipe-content">
         {" "}
-        {/* Flexbox container */}
         <div className="ingredients">
           {" "}
-          {/* Première colonne */}
           <h2>Ingrédients</h2>
           <ul>
             {recipe.ingredients &&
@@ -75,7 +72,6 @@ function RecipesDetail() {
         </div>
         <div className="preparation-method">
           {" "}
-          {/* Deuxième colonne */}
           <h2>Méthode de préparation</h2>
           <ol>
             {preparationSteps.map((step, index) => (

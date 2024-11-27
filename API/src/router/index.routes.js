@@ -1,6 +1,6 @@
 import {Router} from "express";
 import authRouter from "./auth.routes.js";
-import recipesRouter from "./recipe.routes.js"; 
+import recipesRouter from "./recipes.routes.js"; 
 import commentsRouter from "./comment.routes.js"; 
 import adminRouter from "./admin.routes.js";
 
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 
 router.use(`${BASE_API}/auth`, authRouter);
 router.use(`${BASE_API}/recipes`, recipesRouter);
-router.use(`${BASE_API}/comments`, commentsRouter)
-router.use(`${BASE_API}/admin`, adminRouter)
+router.use(`${BASE_API}/comments`, commentsRouter);
+router.use(`${BASE_API}/admin`, adminRouter);
 
 export default router;

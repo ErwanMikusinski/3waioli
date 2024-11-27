@@ -1,8 +1,7 @@
 import UserModel from "../model/User.js";
 
 const checkAuth = (req, res) => {
-    
-    // Répond avec un message de succès et les informations de l'utilisateur si connecté       
+     
        res.json({message: "Utilisateur connecté", user: req.session.user || {}});
    };
    

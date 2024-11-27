@@ -1,7 +1,5 @@
 import React from 'react';
-import '../assets/style/footer.scss'; // Assurez-vous que ce fichier est importé
-
-// Import des icônes depuis FontAwesome
+import '../assets/style/footer.scss';
 import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {

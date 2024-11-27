@@ -21,8 +21,8 @@ import Recipe from '../model/Recipe.js';
 
     async function addRecipe(req, res) {
         try {
-            const newRecipe = await Recipe.add(req.body);
-            res.status(201).json({ message: 'Recette ajoutée avec succès.', id: newRecipe.insertId });
+            const newRecipe = await Recipe.addRecipe({...req.body, users_id : req.session.user.id});
+            res.status(201).json({ message: 'Recette ajoutée avec succès.', id: newRecipe.insertId});
         } catch (error) {
             res.status(500).json({ error: 'Erreur lors de l\'ajout de la recette.' });
         }
@@ -30,7 +30,7 @@ import Recipe from '../model/Recipe.js';
 
     async function updateRecipe(req, res) {
         try {
-            const updatedRecipe = await Recipe.update({ id: req.params.id, ...req.body });
+            const updatedRecipe = await Recipe.updateRecipe({ id: req.params.id, ...req.body, users_id : req.session.user.id });
             if (updatedRecipe.affectedRows) {
                 res.status(200).json({ message: 'Recette mise à jour avec succès.' });
             } else {
@@ -43,7 +43,7 @@ import Recipe from '../model/Recipe.js';
 
     async function deleteRecipe(req, res) {
         try {
-            const deletedRecipe = await Recipe.remove(req.params.id);
+            const deletedRecipe = await Recipe.deleteRecipe(req.params.id);
             if (deletedRecipe.affectedRows) {
                 res.status(200).json({ message: 'Recette supprimée avec succès.' });
             } else {

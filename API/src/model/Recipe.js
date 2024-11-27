@@ -1,3 +1,4 @@
+import { deleteRecipe } from "../controller/recipes.js";
 import Query from "./Query.js";
 
 class Recipe {
@@ -18,7 +19,8 @@ class Recipe {
         }
     }
 
-    static async add (data) {
+    static async addRecipe (data) {
+            console.log(data.users_id);
         const response = await Query.runWithParams(
             `INSERT INTO recipes (title, description,
              release_date, picture, alt, preparation_time,
@@ -35,14 +37,14 @@ class Recipe {
                 data.number_people,
                 data.difficulty,
                 data.users_id,
-                data.categories_id,
+                1,
                 data.preparation_method
             ]
         );
-        return response;
+    return response;
     }
 
-    // Récupérer une recette spécifique par ID
+
     static async getOneById(id) {
         try {
             const query = `
@@ -82,11 +84,12 @@ class Recipe {
         }
     }
 
-    // Mettre à jour une recette spécifique par ID
-    static async update (data) {
+    static async updateRecipe (data) {
         const response = await Query.runWithParams(
             `UPDATE recipes 
-            SET title = ?, description = ?, release_date = ?, picture = ?, alt = ?, preparation_time = ?, number_people = ?, difficulty = ?, preparation_method = ?, users_id = ?, categories_id = ? 
+            SET title = ?, description = ?, release_date = ?, picture = ?, alt = ?,
+            preparation_time = ?, number_people = ?, difficulty = ?, preparation_method = ?,
+            users_id = ?, categories_id = ? 
             WHERE id = ?`,
             [
                 data.title,
@@ -106,7 +109,7 @@ class Recipe {
         return response;
     }
 
-    static async remove (id) {
+    static async deleteRecipe (id) {
         const response = await Query.runWithParams(
             "DELETE FROM recipes WHERE id = ?",
             [id]

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { UserContext } from "../hooks/UserContextProvider";
-import { useContext } from "react";
+import { useUser } from "../hooks/UserContextProvider";
 
 // eslint-disable-next-line react/prop-types
 function BurgerMenu({ setIsOpenBurger }) {
-  const user = useContext(UserContext);
+  const user = useUser();
 
   const handleLogout = (event) => {
     event.preventDefault();

@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { UserContext } from "../../hooks/UserContextProvider";
+import { useState } from "react";
+import { useUser } from "../../hooks/UserContextProvider";
 
 function FormLogin() {
   // État pour gérer les données du formulaire
@@ -9,7 +9,7 @@ function FormLogin() {
   });
 
   // Accès au contexte utilisateur
-  const context = useContext(UserContext);
+  const context = useUser();
 
   // État pour gérer les messages d'erreur
   const [erreurMessage, setErreurMessage] = useState("");
